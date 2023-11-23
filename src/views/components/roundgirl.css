@@ -1,0 +1,18 @@
+/* アニメーションの定義 */
+@keyframes RGmove {
+    from {
+      transform: translateX(500%);
+    }
+    to {
+      transform: translateX(-200px);
+    }
+  }
+  
+  /* アニメーションの適用 */
+  .RG {
+    animation: RGmove 2s ease-out;
+    position: absolute;
+    bottom: 100px;
+    left:-500px;
+  }
+  

@@ -1,0 +1,19 @@
+/* アニメーションの定義 */
+@keyframes moveFromRight {
+    from {
+      transform: translateX(-300%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* アニメーションの適用 */
+  .move-from-right {
+    animation: moveFromRight 2s ease-out;
+    position: absolute;
+    bottom: 20px;
+    left:100px;
+    width:250px
+  }
+  

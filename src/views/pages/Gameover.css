@@ -1,0 +1,25 @@
+.go{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    left:0;
+}
+.AW{
+    position: fixed;
+    top: 70%;
+    left:30px;
+}
+.angry{
+        font-size: 32px;
+        width: 800px;
+        height: 200px;
+        background-color: #9e9e9e;
+        border-radius: 20px; /* 角の丸み */
+        text-align: center;
+        line-height: 100px;
+        top:70%;
+        position: fixed;
+        right:40px;
+    
+}
