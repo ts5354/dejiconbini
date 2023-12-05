@@ -1,19 +1,25 @@
-import React,{ useEffect } from 'react'
+import React,{ useState,useEffect } from 'react'
 import "./select_pop2.css"
 const SelectPop2 = (props) => {
-    const BadAnswer = async ()=>{
-      props.onPop1Click();
-      try {
-        const response = await fetch('http://localhost:2000/decrement_point', {
-          method: 'POST',
-        });
-        const data = await response.json();
-        console.log('Points updated:', data);
-      } catch (error) {
-        console.error('Error updating points:', error);
-      }
-
+  const [userName, setUserName] = useState('');
+  const userId = sessionStorage.getItem('userId');
+  const BadAnswer = async ()=>{
+    props.onPop1Click();
+    try {
+      const response = await fetch('http://localhost:2000/decrement_point', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: userId })
+    });
+    const data = await response.json();
+    console.log('Points updated:', data);
+    } catch (error) {
+      console.error('Error updating points:', error);
     }
+
+  }
     const handlePopup2Click = async () => {
       props.trueAnswer();
       props.returnAnswer();
@@ -21,6 +27,10 @@ const SelectPop2 = (props) => {
       try {
         const response = await fetch('http://localhost:2000/increment_point', {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: userId })
         });
         const data = await response.json();
         console.log('Points updated:', data);
@@ -41,6 +51,10 @@ const SelectPop2 = (props) => {
         } catch (error) {
           console.error('Error:', error);
         }
+        const storedName = sessionStorage.getItem('name');
+    if (storedName) {
+      setUserName(storedName);
+    }
       };
     
       fetchData();

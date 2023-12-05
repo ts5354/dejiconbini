@@ -18,7 +18,7 @@ const Stage1 = (props) => {
   };
   const handleClick = () => {
     setIsGameOver(true);
-    navigate('/gameover');
+    navigate(props.gameover);
   };
   const trueAnswer = () => {
     setVis("hidden");

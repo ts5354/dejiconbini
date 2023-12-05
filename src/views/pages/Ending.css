@@ -1,0 +1,54 @@
+/* ランキングコンテナのスタイル */
+.ending-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* グラデーション背景 */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  }
+  
+  /* 各ランキングアイテムのスタイル */
+  .ending-item {
+    background-color: #ffffff;
+    border-left: 5px solid #007bff; /* 左側のボーダー */
+    padding: 10px 15px 10px 20px;
+    margin: 10px 0 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 90%; /* アイテムの幅 */
+    text-align: left;
+    font-size: 1.1em; /* 文字サイズ */
+    transition: transform 0.2s; /* ホバーエフェクト用 */
+  }
+  
+  /* ホバーエフェクト */
+  .ending-item:hover {
+    transform: scale(1.09);
+  }
+  
+  /* 1位のスタイル */
+  .ending-item:first-child {
+    border-left-color: gold;
+    font-weight: bold;
+  }
+  
+  /* 2位のスタイル */
+  .ending-item:nth-child(2) {
+    border-left-color: silver;
+  }
+  
+  /* 3位のスタイル */
+  .ending-item:nth-child(3) {
+    border-left-color: #cd7f32;
+  }
+  
+  /* ランキングヘッダーのスタイル */
+  .ending-header {
+    font-size: 1.5em;
+    color: #000000; /* 白文字 */
+    margin-bottom: 20px;
+  }
+  
