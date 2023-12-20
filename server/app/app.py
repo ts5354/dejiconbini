@@ -2,13 +2,16 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import logging
+import pymysql
+pymysql.install_as_MySQLdb()
+
 app = Flask(__name__)
 # ログレベルをDEBUGに設定
 logging.basicConfig(level=logging.DEBUG)
 
 # Flaskのデフォルトロガーを使用
 logger = app.logger
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:5354@localhost/digiconbini'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5354@docker-mysql-mysql-1:3306/digiconbini'
 db = SQLAlchemy(app)
 
 # CORS設定

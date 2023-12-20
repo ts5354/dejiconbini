@@ -1,6 +1,7 @@
 import React from 'react'
 import  OPP from "./opening.gif"
 import { useNavigate } from 'react-router-dom';
+import "./Opening.css"
 const Opening = () => {
   
     // Handler for popup2 click
@@ -34,17 +35,19 @@ return (
         <button onClick={handleSubmit}>
           スタート
         </button>
+        
         <input 
           type="text"
-          id="name" 
+          id="text3"
           name="name" 
           required minlength="4" 
           maxlength="8" 
           size="10" 
           value={name}
+          placeholder="名前を入力する"
           onChange={handleNameChange}
         />
-        名前を入力
+        <div class="text_underline"></div>
     </div>
   )
 }

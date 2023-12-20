@@ -1,0 +1,5 @@
+flask
+pymysql
+mysqlclient 
+flask_sqlalchemy
+flask_cors

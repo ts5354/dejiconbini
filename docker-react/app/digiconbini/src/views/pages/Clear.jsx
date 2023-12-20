@@ -8,9 +8,9 @@ const Clear = (props) => {
       };
   return (
     <div>
-        <img src={SC} className="sc"/>
+        <img src={SC} className="sc" style={{ width: '50%' }}/>
         <button onClick={handleClick}>
-          スタート
+          次のステージへ
         </button>
     </div>
   )
