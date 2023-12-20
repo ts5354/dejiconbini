@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  # フロントエンドサービス
+  pts-front:
+    container_name: app
+    build:
+      context: ./docker-react
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./docker-react/app
+        target: /usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "cd digiconbini && npm start"
+    ports:
+      - "3000:3000"
+    stdin_open: true
+
+  # バックエンドサービス
+  pts-backend:
+    container_name: flaskapp
+    build: ./server
+    ports:
+      - "2000:5001"
+    environment:
+      - FLASK_APP=/usr/src/app/app.py
+    volumes:
+      - ./server/app:/usr/src/app
+    command: flask run --host=0.0.0.0 --port=5001
+
+  # MySQLデータベースサービス
+  mysql:
+    image: original_mysql_world
+    build: ./docker-mysql
+    volumes:
+      - ./docker-mysql/mysql/DB:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=5354
+    ports:
+      - "3306:3306"
+
+networks:
+  docker-mysql_default:
+    external: true
