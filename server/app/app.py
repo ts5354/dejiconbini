@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Flaskのデフォルトロガーを使用
 logger = app.logger
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5354@docker-mysql-mysql-1:3306/digiconbini'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:Yukishiro0712@database-1.cyg88c2shco5.ap-northeast-1.rds.amazonaws.com/digiconbini'
 db = SQLAlchemy(app)
 
 # CORS設定

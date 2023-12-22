@@ -25,21 +25,9 @@ services:
       - "2000:5001"
     environment:
       - FLASK_APP=/usr/src/app/app.py
+      
     volumes:
       - ./server/app:/usr/src/app
     command: flask run --host=0.0.0.0 --port=5001
 
-  # MySQLデータベースサービス
-  mysql:
-    image: original_mysql_world
-    build: ./docker-mysql
-    volumes:
-      - ./docker-mysql/mysql/DB:/docker-entrypoint-initdb.d
-    environment:
-      - MYSQL_ROOT_PASSWORD=5354
-    ports:
-      - "3306:3306"
 
-networks:
-  docker-mysql_default:
-    external: true
