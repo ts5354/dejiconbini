@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY app/digiconbini/package.json ./
 
 # 依存関係をインストール
-RUN npm install
+#RUN npm install
 RUN npm install --save-dev @babel/plugin-proposal-private-property-in-object
 
 
