@@ -3,3 +3,4 @@ pymysql
 mysqlclient 
 flask_sqlalchemy
 flask_cors
+python-dotenv

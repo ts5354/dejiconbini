@@ -3,7 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import logging
 import pymysql
+import os
+from dotenv import load_dotenv
 pymysql.install_as_MySQLdb()
+load_dotenv()
 
 app = Flask(__name__)
 # ログレベルをDEBUGに設定
@@ -11,11 +14,11 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Flaskのデフォルトロガーを使用
 logger = app.logger
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:Yukishiro0712@database-1.cyg88c2shco5.ap-northeast-1.rds.amazonaws.com/digiconbini'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 db = SQLAlchemy(app)
 
 # CORS設定
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": os.getenv('ORIGINS')}})
 
 class Points(db.Model):
     id = db.Column(db.Integer, primary_key=True)

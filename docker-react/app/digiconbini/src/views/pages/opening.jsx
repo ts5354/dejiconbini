@@ -14,7 +14,7 @@ const Opening = () => {
     };
     const handleSubmit = async () => {
       try {
-        const response = await fetch('http://localhost:2000/opening', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/opening`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

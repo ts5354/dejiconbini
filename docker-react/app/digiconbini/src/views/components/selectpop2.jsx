@@ -6,7 +6,7 @@ const SelectPop2 = (props) => {
   const BadAnswer = async ()=>{
     props.onPop1Click();
     try {
-      const response = await fetch('http://localhost:2000/decrement_point', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/decrement_point`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ const SelectPop2 = (props) => {
       props.returnAnswer();
       props.stage1Round();
       try {
-        const response = await fetch('http://localhost:2000/increment_point', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/increment_point`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const SelectPop2 = (props) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:2000/get_points');
+          const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/get_points`);
           const data = await response.json();
           if (response.ok) {
             console.log('Points:', data.points);
