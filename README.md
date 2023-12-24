@@ -3,7 +3,7 @@
 AWSのRDSとAzureで鯖建てたんですけど攻撃されるのが怖いので
 公開はしません(´；ω；｀)
 
-## Available Scripts
+## ゲーム内容
 
 In the project directory, you can run:
 
